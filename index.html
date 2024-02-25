@@ -1,159 +1,214 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
-      <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>[deleted]</title>
-    <link rel="stylesheet" href="css/theme.css" />
-    <link rel="stylesheet" href="css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-    
-      <script>
-        // Current page data
-        var mkdocs_page_name = "[deleted]";
-        var mkdocs_page_input_path = "index.md";
-        var mkdocs_page_url = null;
-      </script>
-    
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>random0226</title>
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+      }
+
+      .check-model-list {
+          display: flex;
+          align-content: center;
+      }
+
+      .check-model-list p {
+          width: 200px;
+          cursor: pointer;
+          border: 1px solid red;
+          padding: 10px;
+          text-align: center;
+          margin-bottom: 12px;
+      }
+
+      .check-model-list p:nth-child(1) {
+          border-right: 0;
+      }
+
+      .check-model-list p.active {
+          background: red;
+          color: #fff;
+      }
+
+      .wrap {
+          padding: 10px;
+      }
+
+      h2 {
+          margin-bottom: 10px;
+      }
+
+      ul {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+      }
+
+      ul li {
+          background-color: #e9e9eb;
+      }
+
+      ul.red li.current {
+          background-color: red;
+      }
+
+      ul.blue li.current {
+          background-color: #506eff;
+      }
+
+      ul li {
+          list-style: none;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          line-height: 30px;
+          text-align: center;
+          color: #fff;
+          margin-right: 6px;
+          margin-bottom: 6px;
+      }
+
+      button {
+          display: block;
+          width: 150px;
+          height: 50px;
+          margin: 10px auto;
+          border: 0;
+          font-size: 20px;
+      }
+  </style>
 </head>
+<body>
+<div class="wrap">
+	<h5>v20240226静态不计算 重载/切换模式刷新</h5>
+  <div id="modeList" class="check-model-list"></div>
 
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="." class="icon icon-home"> [deleted]
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
+  <h2>前区</h2>
+  <ul id="red" class="red"></ul>
+  <h2>后区</h2>
+  <ul id="blue" class="blue"></ul>
 </div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href=".">[deleted]</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="1/">[deleted]</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="2/">[deleted]</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="3/">[deleted]</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="4/">[deleted]</a>
-                </li>
-              </ul>
-      </div>
-    </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href=".">[deleted]</a>
-        
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li class="breadcrumb-item active">[deleted]</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h1 id="welcome-to-rqldcd">[deleted]</h1>
-<p>My website will no longer be updated from now on. Our industry is definitely the most interesting, wonderful, and has infinite possibilities. Everyone must have been fascinated by it
-It is rare for one's interests to coexist with one's job, but it will occupy a lot of time, almost all of it. However, one cannot just have a perfect career
-There are more perfections worth pursuing. As fellow classmates and colleagues, thank you for accompanying me. I hope to cherish your time and reach the pinnacle on this road ------ syso("Farewell !");
-</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
-              
-            </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="1/" class="btn btn-neutral float-right" title="[deleted]">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-          
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-    
-      <span><a href="1/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
-</div>
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = ".";</script>
-    <script src="js/theme_extra.js"></script>
-    <script src="js/theme.js"></script>
-      <script src="js/bd.js"></script>
-      <script src="search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
 </body>
-</html>
+<script>
+// 红球从1 - 33 中选择 6 个
+// 蓝球从1 - 16 中选择 1 个
+let options = {
+    redLength: 33,
+    redLuck: 6,
+    blueLength: 16,
+    blueLuck: 1
+  },
+  options2 = {
+    redLength: 35,
+    redLuck: 5,
+    blueLength: 12,
+    blueLuck: 2
+  },
+  activeList = ['1', '2'],
+  active = '1',
+  modelList = document.getElementById("modeList");
 
-<!--
-MkDocs version : 1.5.2
-Build Date UTC : 2024-02-03 23:07:29
--->
+// 改变模式
+const checkModel = (model) => {
+  this.avtive = model
+}
+
+// 渲染模式
+const renderModel = (model) => {
+  return `<p data-model="${model}" class="model-item ${active === model && 'active'}">${model === '1' ? '双色球' : '超级大乐透'}</p>`
+}
+
+const renderModelOption = () => {
+  modelList.innerHTML = activeList.reduce((prev, tar) => {
+    prev += renderModel(tar)
+    return prev
+  }, '')
+}
+
+// 切换模式
+modelList.addEventListener('click', (e) => {
+  let model = e.target.getAttribute('data-model')
+  if (model === active || model === null) return
+  console.log(model)
+  active = model
+  Array.from(document.getElementsByClassName('model-item')).map(item => {
+    item.classList.remove('active')
+  })
+  e.target.classList.add('active')
+  showLuckNum()
+})
+
+// 获取随机函数
+const getRandom = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// 获取幸运数组的操作
+const getGoodLuckOption = (min, max, length) => {
+  return new Array(length).fill(1).reduce((prev, target) => {
+    let luckyNum = getRandom(min, max)
+    while (prev.includes(luckyNum)) luckyNum = getRandom(min, max)
+    prev.push(luckyNum)
+    return prev
+  }, [])
+}
+
+// 获取幸运数组
+const getGoodLuck = () => {
+  let o = active === '1' ? options : options2
+  return {
+    redList: getGoodLuckOption(1, o.redLength, o.redLuck),
+    blueList: getGoodLuckOption(1, o.blueLength, o.blueLuck)
+  }
+}
+
+// 渲染号码
+const renderLi = (val, current = false) => {
+  return `<li class="${current ? 'current' : ''}">${val}</li>`
+}
+
+// 渲染号码组的操作
+const renderListOption = (luckList) => {
+  Object.keys(luckList).forEach(item => {
+    renderList(item.split('List')[0], luckList[item])
+  })
+}
+
+// 渲染号码组
+const renderList = (nodeKey, content) => {
+  let o = active === '1' ? options : options2
+  document.getElementById(nodeKey).innerHTML = new Array(o[`${nodeKey}Length`]).fill(1).reduce((prev, target, index) => {
+    return prev += renderLi(index + 1, content.includes(index + 1))
+  }, '')
+}
+
+const showLuckNum = function () {
+  renderListOption(getGoodLuck())
+}
+
+const init = () => {
+  showLuckNum()
+  renderModelOption()
+}
+
+init()
+// 获取历史数据 输出计算
+
+
+
+
+
+
+
+
+
+// Powered by molifei Reference css  contact   nkgiycnup@mozmail.com 
+</script>
+</html>
