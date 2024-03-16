@@ -5,8 +5,23 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>100个蛋糕店</title>
+  <title>100个的蛋糕店</title>
   <style>
+	  
+	  
+	  
+	  #alert_mid {
+	      width: 100px;
+	      height: 10px;
+	      margin: 50px auto;
+		  color: red;
+	  }	
+        #warp {
+            width: 300px;
+            height: 150px;
+            border: 1px solid red;
+            margin: 150px auto;
+        }	  
       * {
           margin: 0;
           padding: 0;
@@ -35,7 +50,7 @@
           color: #fff;
       }
 
-      .wrap {
+      .wrap_up {
           padding: 10px;
       }
 
@@ -80,11 +95,13 @@
           margin: 10px auto;
           border: 0;
           font-size: 20px;
+		  
       }
   </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap_up">
+	<h5>理性对待  请勿用于任何商业用途</h5>
 	<h5>双色球 2 4 日     超级大乐透 1 3 6</h5>
   <div id="modeList" class="check-model-list"></div>
 
@@ -93,8 +110,207 @@
   <h2>后区</h2>
   <ul id="blue" class="blue"></ul>
 </div>
+
+ <div>
+ 	 
+     <h2 id="alert_mid">幸运奖⬇</h2>
+ </div>
+<div id="warp">
+	 
+    <canvas id="can"></canvas>
+</div>
 </body>
  <script src="js/bd.js"></script>
+ <script type="text/javascript">
+     var can = document.querySelector("#can");
+     can.width = 300;
+     can.height = 150;
+     var area=can.width*can.height;
+     console.log(area);
+ 
+     //联系上下文
+     var cv = can.getContext("2d");
+ 
+     //设置中奖信息
+     var data = [{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+        {name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '刮上边第五个数字', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '刮上边第最后个数字', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '第18张', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '第22张', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '第30张', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '20￥', color: 'rgba(255, 0, 0, 1)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '50￥', color: 'rgba(255, 0, 0, 1)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '团园', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '200￥', color: 'rgba(255, 0, 0, 1)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '樱花园门票两张', color: 'hotpink'},
+ 		{name: '足金项链', color: 'rgba(255, 215, 0, 0.9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+        {name: '请圣手', color: 'hotpink'},
+ 		{name: '请圣手', color: 'hotpink'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '和睦', color: 'rgba(0, 0, 0, .9)'},
+ 	    {name: '请圣手', color: 'hotpink'},
+        {name: '再刮是狗！', color: 'darkgreen'},
+ 		{name: '狗都不刮！', color: 'darkgreen'},
+ 		{name: '再刮是狗！', color: 'darkgreen'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '狗都不刮！', color: 'darkgreen'},
+ 		{name: '再刮是狗！', color: 'darkgreen'},
+ 		{name: '狗都不刮！', color: 'darkgreen'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '平安', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '不如买吃的！', color: 'darkgreen'},	
+ 		{name: '不如买吃的！', color: 'darkgreen'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '安康', color: 'rgba(0, 0, 0, .9)'},
+ 		{name: '不如买吃的！', color: 'darkgreen'},];
+ 
+     //获得index值
+      var index=Math.floor(Math.random()*data.length);
+     //获得对象
+     var dataIndex=data[index];
+     //设置文字
+     cv.font="800 30px stcaiyun";
+     cv.textBaseline = 'middle';
+     cv.textAlign="center";
+     cv.fillStyle=dataIndex.color;
+     cv.fillText(dataIndex.name,can.width/2,can.height/2);
+     //将背景转换为canvas特有的base64格式
+     var dataUrl=can.toDataURL("image/png",1);
+     //将背景图片设置为canvas画布的背景
+     can.style.backgroundImage="url("+dataUrl+")";
+     //给画布添加遮罩层
+     cv.fillStyle="#CCC";
+     cv.fillRect(0,0,can.width,can.height);
+     //设置点击事件
+     var flag=false;
+     var r=10;
+     can.addEventListener('mousedown',function(){
+              flag=true;
+             // destination-out 是让重叠部分的内容变为透明
+             cv.globalCompositeOperation = 'destination-out';
+     });
+     can.addEventListener('mouseup',function(){
+             flag=false;
+     });
+ 
+     can.addEventListener('mousemove',function(e){
+             if(flag){
+ 
+                 var x0 = e.clientX - can.offsetLeft;
+                 var y0 = e.clientY - can.offsetTop;
+ 
+                 cv.moveTo(x0, y0);
+                 cv.arc(x0, y0, r, 0, Math.PI * 2);
+                 cv.fill();
+ 
+                 var data = cv.getImageData(0,0,can.width,can.height).data;
+ 
+                 for(var i=0,j=0;i<data.length;i+=4){
+                     if(data[i] && data[i+1] && data[i+2] && data[i+3]){
+                         j++;
+                     }
+                 }
+                 //当图层被擦除剩余10%时触发
+                 if(j<=area*0.1){
+                     cv.clearRect(0,0,can.width,can.height);
+                 }
+             }
+     });
+ 
+ 
+ </script>
 <script>
 // 红球从1 - 33 中选择 6 个
 // 蓝球从1 - 16 中选择 1 个
@@ -210,6 +426,6 @@ init()
 
 
 
-// Powered by molifei Reference css  contact   nkgiycnup@mozmail.com 
+// 理性对待 仅供娱乐 不得用于任何商业用途Powered by molifei Reference css   &Thanks SmileFuture contact nkgiycnup@mozmail.com 
 </script>
 </html>
