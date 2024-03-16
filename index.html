@@ -121,7 +121,25 @@
 </div>
 </body>
  <script src="js/bd.js"></script>
+ 
+
+ 
+ 
+ 
+
  <script type="text/javascript">
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
      var can = document.querySelector("#can");
      can.width = 300;
      can.height = 150;
@@ -276,16 +294,16 @@
      //设置点击事件
      var flag=false;
      var r=10;
-     can.addEventListener('mousedown',function(){
+     can.addEventListener('touchstart',function(){
               flag=true;
              // destination-out 是让重叠部分的内容变为透明
              cv.globalCompositeOperation = 'destination-out';
      });
-     can.addEventListener('mouseup',function(){
+     can.addEventListener('touchend',function(){
              flag=false;
      });
  
-     can.addEventListener('mousemove',function(e){
+     can.addEventListener('touchmove',function(e){
              if(flag){
  
                  var x0 = e.clientX - can.offsetLeft;
