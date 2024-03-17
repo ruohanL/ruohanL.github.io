@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+
+div {
+	text-align: left
+}
+
+body {
+	color: #000000;
+	text-align: center;
+	font: 16px "微软雅黑";
+	background: #ffffff
+}
+
+
+.keBottom {
+
+	line-height: 28px;
+	text-align: center;
+	font-family: '微软雅黑';
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	bottom: 30px;
+	z-index: 1000;
+}
+
+.keTxtP {
+	font-size: 16px;
+	color: #fff;
+}
+
+.keUrl {
+	color: #fff;
+	font-size: 30px;
+}
+
+.keUrl:hover {
+	text-decoration: underline;
+	color: #fff;
+}
+
+.mKeBanner,
+.mKeBanner div {
+	text-align: center;
+}
+
+/* 效果CSS开始 */
+#bg {
+	height: 250px !important;
+}
+
+
+
+#show {
+	background-color: #fff;
+	z-index: 1002;
+	overflow: auto;
+	position: relative;
+	width: 409px;
+	height: 233px;
+	text-align: center;
+	line-height: 233px;
+	margin-left: 8.5px;
+	margin-top: 10px;
+	font-size: 48px;
+	color: red;
+	font-weight: bolder;
+	border: 2px solid #ff0000;
+
+}
+
+.resetbtn {
+	margin: 0 auto;
+	height: 60px;
+	width: 140px;
+	background: #ff0000;
+	color: white;
+	font-size: 18px;
+	border-radius: 40px;
+	border: none;
+	text-align: center;
+	line-height: 56px;
+}
+
+html,
+body,
+.resetbtn:hover,
+.keBottom:hover {
+	cursor: url("../img/xiangpica.png"), auto
+}
+
+/* 效果CSS结束 */
