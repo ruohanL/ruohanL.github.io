@@ -7,8 +7,8 @@ div {
 
 body {
 	color: #000000;
-	text-align: center;
-	font: 16px "微软雅黑";
+
+	font: 20px "微软雅黑";
 	background: #ffffff
 }
 
@@ -45,13 +45,6 @@ body {
 	text-align: center;
 }
 
-/* 效果CSS开始 */
-#bg {
-	height: 250px !important;
-}
-
-
-
 #show {
 	background-color: #fff;
 	z-index: 1002;
@@ -60,10 +53,10 @@ body {
 	width: 409px;
 	height: 233px;
 	text-align: center;
-	line-height: 233px;
+	line-height: 223px;
 	margin-left: 8.5px;
 	margin-top: 10px;
-	font-size: 48px;
+	font-size: 68px;
 	color: #F2C811;
 	font-weight: bolder;
 	border: 0px solid #E95223;
@@ -76,18 +69,10 @@ body {
 	width: 140px;
 	background: #E95223;
 	color: white;
-	font-size: 18px;
+	font-size: 20px;
 	border-radius: 40px;
 	border: none;
 	text-align: center;
 	line-height: 56px;
+	font-weight: bold;
 }
-
-html,
-body,
-.resetbtn:hover,
-.keBottom:hover {
-	cursor: url("../img/xiangpica.png"), auto
-}
-
-/* 效果CSS结束 */
