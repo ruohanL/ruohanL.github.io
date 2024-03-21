@@ -5,7 +5,7 @@
 		<meta name="viewport"
 			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>😎</title>
+		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
 		<script type="text/javascript" src="config.js"></script>
@@ -34,7 +34,7 @@
 			}
 
 			.check-model-list p.active {
-				background: red;
+				background: #E95223;
 				color: #fff;
 			}
 
@@ -57,11 +57,11 @@
 			}
 
 			ul.red li.current {
-				background-color: red;
+				background-color: #E95223;
 			}
 
 			ul.blue li.current {
-				background-color: #506eff;
+				background-color: #F2C811;
 			}
 
 			ul li {
@@ -85,21 +85,31 @@
 				font-size: 20px;
 
 			}
+			#styleTopHight{
+				
+				
+				height: 25px;
+			}
+			
+			
+			
+			
 		</style>
 	</head>
 	<body>
 		<div class="wrap_up">
-			<h5>双色球 2 4 日 超级大乐透 1 3 6</h5>
+			<h5 id="styleTopHight"></h5>
 			<div id="modeList" class="check-model-list"></div>
-
-			<h2>前区</h2>
-			<ul id="red" class="red"></ul>
-			<h2>后区</h2>
-			<ul id="blue" class="blue"></ul>
+			<div id="dynamic">
+				<h2>前区</h2>
+				<ul id="red" class="red"></ul>
+				<h2>后区</h2>
+				<ul id="blue" class="blue"></ul>
+			</div>
 		</div>
 
 
-		<div>
+		<div id="showLuck">
 			<div id="gua1" style="width:510px;;margin:0 auto;">
 				<div id="show" style="position:absolute;display:none;" align="center">
 				</div>
@@ -107,11 +117,173 @@
 				<canvas id="front" class="xiangpicls" style="position:absolute;no-repeat;z-index:1005;" />
 			</div>
 			<div class="keBottom">
-				<div class="resetbtn">重新抽奖</div>
+				<div class="resetbtn">再刮一次</div>
 			</div>
 		</div>
 
+		<!--	<script src="js/bd.js"></script> -->
+		<script>
+			document.getElementById('dynamic').style.display = "none";
+			// 红球从1 - 33 中选择 6 个
+			// 蓝球从1 - 16 中选择 1 个
+			let options = {
+					redLength: 33,
+					redLuck: 6,
+					blueLength: 16,
+					blueLuck: 1
+				},
+				options2 = {
+					redLength: 35,
+					redLuck: 5,
+					blueLength: 12,
+					blueLuck: 2
+				},
+				activeList = ['1', '2', '3'],
+				//首先展示
+				active = '3',
+				modeListShow = document.getElementById("modeList");
+
+			// 渲染模式
+			function dynamic(choice) {
+
+				if (choice == 3) {
+					document.getElementById('dynamic').style.display = "none";
+					document.getElementById('showLuck').style.display = "block";
+					console.log("隐藏执行")
+				}
+
+				if (choice == 1) {
+					document.getElementById('dynamic').style.display = "block";
+					document.getElementById('showLuck').style.display = "none";
+
+				}
+				if (choice == 2) {
+
+					document.getElementById('dynamic').style.display = "block";
+					document.getElementById('showLuck').style.display = "none";
+				}
+
+			}
+
+			const renderModel = (model) => {
+				//return `<p titleText="${model}" class="model-item  ${active === model && 'active'}">${model === '1' ? '双色球' : '大乐透'}</p>`
+
+				return `<p titleText="${model}" class="model-item 
+				 
+				 ${active === model && 'active'}"  > ${model ==='3'  ?  '😎/🙂' : model === '1' ? '2/4/日' : '1/3/6'} </p>` //条件选择器多重使用
+
+			}
+			const renderModelOption = () => {
+				modeListShow.innerHTML = activeList.reduce((a, b) => {
+					a += renderModel(b)
+
+					return a
+				}, '')
+			}
+			// 切换模式
+			modeListShow.addEventListener('click', (e) => {
+				let choice = e.target.getAttribute('titleText')
+				//if (model === active || model === null) return
+
+				console.log(choice)
+
+				//显示1
+				if (choice == 1) {
+					dynamic(choice);
+					active = choice
+					Array.from(document.getElementsByClassName('model-item')).map(item => {
+						item.classList.remove('active')
+					})
+					e.target.classList.add('active')
+
+					showLuckNum()
+				}
+				//显示2
+				if (choice == 2) {
+					active = choice
+					dynamic(choice);
+					Array.from(document.getElementsByClassName('model-item')).map(item => {
+						item.classList.remove('active')
+					})
+					e.target.classList.add('active')
+
+					showLuckNum()
+				}
+				//显示luck
+				if (choice == 3) {
+
+					active = choice
+					Array.from(document.getElementsByClassName('model-item')).map(item => {
+						item.classList.remove('active')
+					})
+					e.target.classList.add('active')
+					console.log("")
+					dynamic(choice);
+				}
+			})
+
+
+			// 获取随机函数
+			const getRandom = (min, max) => {
+				min = Math.ceil(min);
+				max = Math.floor(max);
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+
+			// 获取幸运数组的操作
+			const getGoodLuckOption = (min, max, length) => {
+				return new Array(length).fill(1).reduce((prev, target) => {
+					let luckyNum = getRandom(min, max)
+					while (prev.includes(luckyNum)) luckyNum = getRandom(min, max)
+					prev.push(luckyNum)
+					return prev
+				}, [])
+			}
+
+			// 获取幸运数组
+			const getGoodLuck = () => {
+				let o = active === '1' ? options : options2
+				return {
+					redList: getGoodLuckOption(1, o.redLength, o.redLuck),
+					blueList: getGoodLuckOption(1, o.blueLength, o.blueLuck)
+				}
+			}
+
+			// 渲染号码
+			const renderLi = (val, current = false) => {
+				return `<li class="${current ? 'current' : ''}">${val}</li>`
+			}
+
+			// 渲染号码组的操作
+			const renderListOption = (luckList) => {
+				Object.keys(luckList).forEach(item => {
+					renderList(item.split('List')[0], luckList[item])
+				})
+			}
+
+			// 渲染号码组
+			const renderList = (nodeKey, content) => {
+				let o = active === '1' ? options : options2
+				document.getElementById(nodeKey).innerHTML = new Array(o[`${nodeKey}Length`]).fill(1).reduce((prev, target,
+					index) => {
+					return prev += renderLi(index + 1, content.includes(index + 1))
+				}, '')
+			}
+
+			const showLuckNum = function() {
+				renderListOption(getGoodLuck())
+			}
+
+			const init = () => {
+				showLuckNum()
+				renderModelOption()
+			}
+
+			init()
+		</script>
+
 		<script type="text/javascript">
+			//刮刮乐
 			const imgSrc = 'img/gua_image.png';
 			const height = 233;
 			//遮罩纵向宽度
@@ -136,8 +308,8 @@
 					initJSONKeys();
 				}
 				if (globalJsonKey.length <= 0) {
-					$("#show").empty().text('真的没有了，明天再来').show();
-					alert("你真闲啊，所有奖项刮完了");
+					$("#show").empty().text('所有奖项已刮完').show();
+					alert("所有奖项已刮完");
 					return;
 				} else {
 					var key = getKey(tempKey, globalJsonKey);
@@ -180,11 +352,9 @@
 						return getKey(key, keys);
 					}
 				}
-
 				tempKey = key;
 				return key;
 			}
-
 			$("img").load(function() {
 				var body_width = $(window).width();
 				var body_height = $(window).height();
@@ -276,119 +446,10 @@
 			$(".resetbtn").click(function() {
 				initNum = undefined;
 				bodys(height, width);
-
 			});
+
+			// 理性对待 仅供娱乐 请勿用于任何商业用途Powered by molifei &Thanks SmileFuture contact： nkgiycnup@mozmail.com
 		</script>
 
 	</body>
-	<script src="js/bd.js"></script>
-	<script>
-		// 红球从1 - 33 中选择 6 个
-		// 蓝球从1 - 16 中选择 1 个
-		let options = {
-				redLength: 33,
-				redLuck: 6,
-				blueLength: 16,
-				blueLuck: 1
-			},
-			options2 = {
-				redLength: 35,
-				redLuck: 5,
-				blueLength: 12,
-				blueLuck: 2
-			},
-			activeList = ['1', '2'],
-			active = '1',
-			modelList = document.getElementById("modeList");
-
-		// 改变模式
-		const checkModel = (model) => {
-			this.avtive = model
-		}
-
-		// 渲染模式
-		const renderModel = (model) => {
-			return `<p data-model="${model}" class="model-item ${active === model && 'active'}">${model === '1' ? '双色球' : '超级大乐透'}</p>`
-		}
-
-		const renderModelOption = () => {
-			modelList.innerHTML = activeList.reduce((prev, tar) => {
-				prev += renderModel(tar)
-				return prev
-			}, '')
-		}
-
-		// 切换模式
-		modelList.addEventListener('click', (e) => {
-			let model = e.target.getAttribute('data-model')
-			if (model === active || model === null) return
-			console.log(model)
-			active = model
-			Array.from(document.getElementsByClassName('model-item')).map(item => {
-				item.classList.remove('active')
-			})
-			e.target.classList.add('active')
-			showLuckNum()
-		})
-
-		// 获取随机函数
-		const getRandom = (min, max) => {
-			min = Math.ceil(min);
-			max = Math.floor(max);
-			return Math.floor(Math.random() * (max - min + 1)) + min;
-		}
-
-		// 获取幸运数组的操作
-		const getGoodLuckOption = (min, max, length) => {
-			return new Array(length).fill(1).reduce((prev, target) => {
-				let luckyNum = getRandom(min, max)
-				while (prev.includes(luckyNum)) luckyNum = getRandom(min, max)
-				prev.push(luckyNum)
-				return prev
-			}, [])
-		}
-
-		// 获取幸运数组
-		const getGoodLuck = () => {
-			let o = active === '1' ? options : options2
-			return {
-				redList: getGoodLuckOption(1, o.redLength, o.redLuck),
-				blueList: getGoodLuckOption(1, o.blueLength, o.blueLuck)
-			}
-		}
-
-		// 渲染号码
-		const renderLi = (val, current = false) => {
-			return `<li class="${current ? 'current' : ''}">${val}</li>`
-		}
-
-		// 渲染号码组的操作
-		const renderListOption = (luckList) => {
-			Object.keys(luckList).forEach(item => {
-				renderList(item.split('List')[0], luckList[item])
-			})
-		}
-
-		// 渲染号码组
-		const renderList = (nodeKey, content) => {
-			let o = active === '1' ? options : options2
-			document.getElementById(nodeKey).innerHTML = new Array(o[`${nodeKey}Length`]).fill(1).reduce((prev, target,
-				index) => {
-				return prev += renderLi(index + 1, content.includes(index + 1))
-			}, '')
-		}
-
-		const showLuckNum = function() {
-			renderListOption(getGoodLuck())
-		}
-
-		const init = () => {
-			showLuckNum()
-			renderModelOption()
-		}
-
-		init()
-
-		// 理性对待 仅供娱乐 不得用于任何商业用途Powered by molifei  &Thanks SmileFuture contact： nkgiycnup@mozmail.com 
-	</script>
 </html>

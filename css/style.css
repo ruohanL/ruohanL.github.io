@@ -64,9 +64,9 @@ body {
 	margin-left: 8.5px;
 	margin-top: 10px;
 	font-size: 48px;
-	color: red;
+	color: #F2C811;
 	font-weight: bolder;
-	border: 2px solid #ff0000;
+	border: 0px solid #E95223;
 
 }
 
@@ -74,7 +74,7 @@ body {
 	margin: 0 auto;
 	height: 60px;
 	width: 140px;
-	background: #ff0000;
+	background: #E95223;
 	color: white;
 	font-size: 18px;
 	border-radius: 40px;
