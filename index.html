@@ -86,13 +86,10 @@
 				font-size: 20px;
 
 			}
-			#styleTopHight{				
+
+			#styleTopHight {
 				height: 18px;
 			}
-			
-			
-			
-			
 		</style>
 	</head>
 	<body>
@@ -108,7 +105,7 @@
 		</div>
 
 
-		<div id="showLuck">
+		<!-- 		<div id="showLuck">
 			<div id="gua1" style="width:510px;;margin:0 auto;">
 				<div id="show" style="position:absolute;display:none;" align="center">
 				</div>
@@ -118,9 +115,33 @@
 			<div class="keBottom">
 				<div class="resetbtn">再刮一次</div>
 			</div>
+
+		</div> -->
+
+		<div id="showLuck">
+			<div class="choice">
+              
+				<form name="config">
+					选择总张数
+					<select name="class"> </select>
+				</form>
+
+			</div>
+
+
+			<div class="student"><span id="name">0</span></div>
+			<div class="button-wrap">
+				<button class="default-button" type="button" onclick="clickButton()">开始选择</button>
+			</div>
+			<div class="copyright">
+				<span></span>
+			</div>
+			<script src="js/students.js"></script>
+			<script type="text/javascript" src="js/main.js"></script>
+
 		</div>
 
-		<script src="js/bd.js"></script> 
+		<script src="js/bd.js"></script>
 		<script>
 			document.getElementById('dynamic').style.display = "none";
 			// 红球从1 - 33 中选择 6 个
